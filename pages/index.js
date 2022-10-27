@@ -1,12 +1,12 @@
-import Head from "next/head";
+export const getServerSideProps = async ({ res }) => {
+  res.writeHead(301, { location: "/home" });
+  res.end();
 
-export default function Home() {
-  return (
-    <>
-      <Head>
-        <title>{`${process.env.NEXT_PUBLIC_SITE_TITLE} | Home`}</title>
-      </Head>
-      <h1>Cryptocurrency scanner</h1>
-    </>
-  );
+  return {
+    props: { message: "Redirect to /home" },
+  };
+};
+
+export default function Index() {
+  return null;
 }
