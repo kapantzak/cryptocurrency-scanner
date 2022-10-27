@@ -1,8 +1,14 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
+    html {
+        font-size: 16px
+    }
+
     body {
-        font-family: Helvetica Neue, Helvetica, Arial, sans-serif
+        margin: 0;
+        padding: 0;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     }
 `;
 
