@@ -4,7 +4,7 @@ import Link from "next/link";
 import Navigation from "./Navigation";
 
 const HeaderWrapper = styled.header`
-  background-color: ${(props) => props.theme.purple_500};
+  //   border-bottom: 1px solid ${(props) => props.theme.black};
 `;
 
 const HeaderInner = styled.div`
@@ -13,17 +13,12 @@ const HeaderInner = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 3rem 0;
+  padding: 2rem 0;
 `;
 
 const Logo = styled.div`
-  font-size: 2rem;
+  font-size: 4rem;
   font-weight: bold;
-
-  > a {
-    color: ${(props) => props.theme.white};
-    text-decoration: none;
-  }
 `;
 
 const Header = () => {
