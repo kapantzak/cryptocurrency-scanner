@@ -1,5 +1,6 @@
 import Head from "next/head";
 import getCoinDetails from "../../queries/coinDetails";
+import CoinDetails from "../../components/CoinDetails";
 
 export const getServerSideProps = async ({ query }) => {
   const { id } = query;
@@ -35,7 +36,7 @@ const DetailsPage = ({ data, error }) => {
       <Head>
         <title>{`${process.env.NEXT_PUBLIC_SITE_TITLE} | Details`}</title>
       </Head>
-      {(error && <p>{error}</p>) || <div>{JSON.stringify(data)}</div>}
+      {(error && <p>{error}</p>) || <CoinDetails data={data} />}
     </>
   );
 };

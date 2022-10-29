@@ -3,10 +3,16 @@ import { useTheme } from "styled-components";
 import Link from "next/link";
 import Navigation from "./Navigation";
 
-const HeaderWrapper = styled.header``;
+const HeaderWrapper = styled.header`
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: ${(props) => props.theme.white};
+  border-bottom: 1px solid ${(props) => props.theme.gray_200};
+`;
 
 const HeaderInner = styled.div`
-  max-width: 1024px;
+  max-width: ${process.env.NEXT_PUBLIC_MAX_WIDTH}px;
   margin: auto;
   display: flex;
   align-items: center;
@@ -15,7 +21,7 @@ const HeaderInner = styled.div`
 `;
 
 const Logo = styled.div`
-  font-size: 3rem;
+  font-size: 1.8rem;
   font-weight: bold;
 `;
 

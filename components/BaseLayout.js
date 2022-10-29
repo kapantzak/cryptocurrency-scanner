@@ -4,8 +4,9 @@ import styled, { ThemeProvider } from "styled-components";
 import GlobalStyle from "../styles/globalStyles";
 
 const Main = styled.main`
-  max-width: 1024px;
+  max-width: ${process.env.NEXT_PUBLIC_MAX_WIDTH}px;
   margin: auto;
+  margin-top: 99px;
   padding: 2rem 0;
 `;
 

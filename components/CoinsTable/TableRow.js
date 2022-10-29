@@ -6,6 +6,7 @@ import {
   FaLongArrowAltDown,
   FaExternalLinkAlt,
 } from "react-icons/fa";
+import { BadgeUppercase } from "../../styles/globalStyles";
 import styled from "styled-components";
 
 const Cell = styled.td`
@@ -94,9 +95,12 @@ const TableRow = ({
         <NameCell>
           <Image src={image} width={24} height={24} alt={`${name} image`} />
           <Link href={`/${id}/details`} title={`View details about ${name}`}>
-            {name} ({symbol})
+            {name}
           </Link>
         </NameCell>
+      </Cell>
+      <Cell>
+        <BadgeUppercase>{symbol}</BadgeUppercase>
       </Cell>
       <Cell>
         <PriceCell>

@@ -3,7 +3,7 @@ import { headers } from "./helpers";
 
 const getCoins = ({ page, per_page }) => {
   return axios({
-    url: `${process.env.API_URL}/coins/markets`,
+    url: `${process.env.NEXT_PUBLIC_API_URL}/coins/markets`,
     method: "get",
     headers,
     params: {

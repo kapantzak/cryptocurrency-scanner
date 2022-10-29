@@ -25,7 +25,7 @@ const HeadCell = styled.th`
   text-align: left;
   padding: 1rem 0;
   color: ${(props) => props.theme.black_light};
-  border-bottom: 1px solid ${(props) => props.theme.gray_300};
+  border-bottom: 1px solid ${(props) => props.theme.gray_200};
 `;
 
 const HeadCellRight = styled(HeadCell)`
@@ -38,6 +38,7 @@ const CoinsTable = ({ data }) => {
       <thead>
         <tr>
           <HeadCell>NAME</HeadCell>
+          <HeadCell>SYMBOL</HeadCell>
           <HeadCellRight>PRICE</HeadCellRight>
           <HeadCellRight>HIGH / LOW</HeadCellRight>
           <HeadCellRight>CHANGE (LAST 24H)</HeadCellRight>
