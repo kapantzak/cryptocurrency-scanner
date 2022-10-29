@@ -82,9 +82,11 @@ const TableRow = ({
   low_24h,
   price_change_percentage_24h,
 }) => {
-  const change = Intl.NumberFormat("en", { style: "percent" }).format(
-    price_change_percentage_24h
-  );
+  const change = Intl.NumberFormat("en", {
+    style: "percent",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(price_change_percentage_24h);
 
   return (
     <tr>
