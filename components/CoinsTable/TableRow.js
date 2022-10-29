@@ -68,7 +68,7 @@ const DetailsCell = styled.div`
 `;
 
 const getCurrencyFormat = (amount) =>
-  new Intl.NumberFormat("en", {
+  new Intl.NumberFormat(process.env.NEXT_PUBLIC_LOCALE, {
     style: "currency",
     currency: "usd",
   }).format(amount);
@@ -83,7 +83,7 @@ const TableRow = ({
   low_24h,
   price_change_percentage_24h,
 }) => {
-  const change = Intl.NumberFormat("en", {
+  const change = Intl.NumberFormat(process.env.NEXT_PUBLIC_LOCALE, {
     style: "percent",
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
