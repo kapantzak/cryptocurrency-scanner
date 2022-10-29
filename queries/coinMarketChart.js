@@ -7,7 +7,7 @@ const getCoinMarketChart = (id, days = "max") => {
     method: "get",
     headers,
     params: {
-      vs_currency: process.env.CURRENCY,
+      vs_currency: process.env.NEXT_PUBLIC_CURRENCY,
       days,
       interval: "daily",
     },

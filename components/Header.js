@@ -3,9 +3,7 @@ import { useTheme } from "styled-components";
 import Link from "next/link";
 import Navigation from "./Navigation";
 
-const HeaderWrapper = styled.header`
-  //   border-bottom: 1px solid ${(props) => props.theme.black};
-`;
+const HeaderWrapper = styled.header``;
 
 const HeaderInner = styled.div`
   max-width: 1024px;
@@ -17,7 +15,7 @@ const HeaderInner = styled.div`
 `;
 
 const Logo = styled.div`
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: bold;
 `;
 

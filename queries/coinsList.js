@@ -7,7 +7,7 @@ const getCoins = ({ page, per_page }) => {
     method: "get",
     headers,
     params: {
-      vs_currency: process.env.CURRENCY,
+      vs_currency: process.env.NEXT_PUBLIC_CURRENCY,
       order: "market_cap_desc",
       per_page,
       page,

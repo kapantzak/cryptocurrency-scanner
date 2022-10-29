@@ -9,13 +9,13 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-        background-color: ${(props) => props.theme.blue_100};
-        color: ${(props) => props.theme.blue_500};
+        background-color: ${(props) => props.theme.gray_300};
+        color: ${(props) => props.theme.black};
     }
 
     a {
         text-decoration: none;
-        color: ${(props) => props.theme.blue_500}
+        color: ${(props) => props.theme.black}
     }
 `;
 
