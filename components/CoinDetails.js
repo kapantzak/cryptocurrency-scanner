@@ -7,6 +7,7 @@ import CoinPriceChart from "./CoinPriceChart";
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  row-gap: 2rem;
 
   section {
     display: flex;
@@ -113,7 +114,9 @@ const CoinDetails = ({ data }) => {
           </div>
           {/* <div dangerouslySetInnerHTML={{ __html: descriptionEnglish }} /> */}
         </Info>
-        <Price>Price</Price>
+        <Price>
+          <div>Current price</div>
+        </Price>
       </section>
       <CoinPriceChart id={id} />
     </Wrapper>

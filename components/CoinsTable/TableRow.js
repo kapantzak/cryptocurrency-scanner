@@ -7,6 +7,7 @@ import {
   FaExternalLinkAlt,
 } from "react-icons/fa";
 import { BadgeUppercase } from "../../styles/globalStyles";
+import { getCurrencyFormat } from "../../utils/helpers";
 import styled from "styled-components";
 
 const Cell = styled.td`
@@ -66,12 +67,6 @@ const DetailsCell = styled.div`
     color: ${(props) => props.theme.black};
   }
 `;
-
-const getCurrencyFormat = (amount) =>
-  new Intl.NumberFormat(process.env.NEXT_PUBLIC_LOCALE, {
-    style: "currency",
-    currency: "usd",
-  }).format(amount);
 
 const TableRow = ({
   id,
