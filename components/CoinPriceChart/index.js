@@ -116,7 +116,7 @@ const CoinPriceChart = ({ id }) => {
     <ChartWrapper>
       <section className="top">
         <ChartTitleWrapper>
-          <ChartTitle>Price</ChartTitle>
+          <ChartTitle>Price historical data</ChartTitle>
           <BadgeUppercase>
             {process.env.NEXT_PUBLIC_CURRENCY} - {priceSinceLiteral(days)}
           </BadgeUppercase>

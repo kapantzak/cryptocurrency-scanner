@@ -159,14 +159,11 @@ const CoinDetails = ({ data }) => {
           <LowHigh {...market_data} />
         </Price>
       </section>
-      <Tabs
-        tabs={[{ label: `About ${name}` }, { label: "Price Chart" }]}
-        initiallyActiveIndex={1}
-      >
-        <AboutCoin dangerouslySetInnerHTML={{ __html: descriptionEnglish }} />
+      <Tabs tabs={[{ label: "Price Chart" }, { label: `About ${name}` }]}>
         <div>
           <CoinPriceChart id={id} />
         </div>
+        <AboutCoin dangerouslySetInnerHTML={{ __html: descriptionEnglish }} />
       </Tabs>
     </Wrapper>
   );
