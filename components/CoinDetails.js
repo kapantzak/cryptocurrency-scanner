@@ -5,13 +5,14 @@ import { BadgeUppercase, BadgeUppercaseSmall } from "../styles/globalStyles";
 import CoinPriceChart from "./CoinPriceChart";
 import LowHigh from "./LowHigh.js";
 import PriceChange from "./PriceChange";
+import Tabs from "./Tabs";
 import { getCurrencyFormat } from "../utils/helpers";
 import { CURRENCY } from "../utils/constants";
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  row-gap: 2rem;
+  row-gap: 3rem;
 
   section {
     display: flex;
@@ -58,6 +59,12 @@ const Price = styled.div`
     font-size: 2rem;
     font-weight: bold;
   }
+`;
+
+const AboutCoin = styled.div`
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: ${(props) => props.theme.gray_700};
 `;
 
 const CoinDetails = ({ data }) => {
@@ -135,7 +142,6 @@ const CoinDetails = ({ data }) => {
             <div className="name">{name}</div>
             <BadgeUppercase>{symbol}</BadgeUppercase>
           </div>
-          {/* <div dangerouslySetInnerHTML={{ __html: descriptionEnglish }} /> */}
         </Info>
         <Price>
           <div className="current-price-header">
@@ -150,7 +156,15 @@ const CoinDetails = ({ data }) => {
           <LowHigh {...market_data} />
         </Price>
       </section>
-      <CoinPriceChart id={id} />
+      <Tabs
+        tabs={[{ label: `About ${name}` }, { label: "Price Chart" }]}
+        initiallyActiveIndex={1}
+      >
+        <AboutCoin dangerouslySetInnerHTML={{ __html: descriptionEnglish }} />
+        <div>
+          <CoinPriceChart id={id} />
+        </div>
+      </Tabs>
     </Wrapper>
   );
 };
