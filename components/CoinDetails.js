@@ -6,6 +6,7 @@ import CoinPriceChart from "./CoinPriceChart";
 import LowHigh from "./LowHigh.js";
 import PriceChange from "./PriceChange";
 import CoinLinks from "./CoinLinks";
+import CoinReputation from "./CoinReputation";
 import Tabs from "./Tabs";
 import { getCurrencyFormat } from "../utils/helpers";
 import { CURRENCY } from "../utils/constants";
@@ -36,6 +37,12 @@ const Info = styled.div`
       font-size: 2rem;
       font-weight: bold;
     }
+  }
+
+  .coin-overview {
+    display: flex;
+    column-gap: 1rem;
+    align-items: center;
   }
 `;
 
@@ -79,7 +86,7 @@ const CoinDetails = ({ data }) => {
     links,
     image,
     sentiment_votes_up_percentage,
-    sentiment_votes_dows_percentage,
+    sentiment_votes_down_percentage,
     community_data,
     developer_data,
   } = data;
@@ -144,7 +151,14 @@ const CoinDetails = ({ data }) => {
             <div className="name">{name}</div>
             <BadgeUppercase>{symbol}</BadgeUppercase>
           </div>
-          <CoinLinks links={links} />
+          <div className="coin-overview">
+            <CoinReputation
+              votesUp={sentiment_votes_up_percentage}
+              votesDown={sentiment_votes_down_percentage}
+            />
+            <CoinLinks links={homepage} />
+          </div>
+          <CoinLinks links={blockchain_site} />
         </Info>
         <Price>
           <div className="current-price-header">

@@ -12,28 +12,14 @@ const Wrapper = styled.div`
 `;
 
 const CoinLinks = ({ links }) => {
-  const {
-    homepage,
-    blockchain_site,
-    official_forum_url,
-    chat_url,
-    announcement_url,
-    twitter_screen_name,
-    facebook_username,
-    bitcointalk_thread_identifier,
-    telegram_channel_identifier,
-    subreddit_url,
-    repos_url,
-  } = links;
-  const { github, bitbucket } = repos_url || {};
-
   return (
     <Wrapper>
-      {(blockchain_site || [])
+      {links
         .filter((href) => href.length > 0)
         .map((href) => (
           <BadgeLink href={href} target="_blank" rel="noopener noreferrer">
-            {trimString(href.replace("https://", ""))} <FaExternalLinkAlt />
+            {trimString(href.replace(/http[s]?:\/\//, ""))}{" "}
+            <FaExternalLinkAlt />
           </BadgeLink>
         ))}
     </Wrapper>
@@ -41,11 +27,11 @@ const CoinLinks = ({ links }) => {
 };
 
 CoinLinks.defaultProps = {
-  links: {},
+  links: [],
 };
 
 CoinLinks.propTypes = {
-  links: PropTypes.object,
+  links: PropTypes.array,
 };
 
 export default CoinLinks;
