@@ -47,9 +47,9 @@ const About = () => {
           <p>
             The application consists of two main pages, the first one (
             <Link href="/home">/home</Link>), which is the landing page, renders
-            a list of all the available coins, paginated according to the user's
-            preferences. The second one (/[coin_id]/details) shows a more
-            detailed view of the selected coin.
+            a list of all the available coins, paginated according to the
+            user&apos;s preferences. The second one (/[coin_id]/details) shows a
+            more detailed view of the selected coin.
           </p>
           <p>
             The source code of this application is hosted on a{" "}

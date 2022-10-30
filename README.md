@@ -11,3 +11,17 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Testing
+
+Run a number of predefined tests by running:
+
+```bash
+npm run test
+```
+
+or in watch mode:
+
+```bash
+npm run testw
+```

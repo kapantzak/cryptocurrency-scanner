@@ -52,6 +52,7 @@ const Tabs = ({ tabs, initiallyActiveIndex, children }) => {
       <div className="tabs">
         {tabs.map(({ label }, index) => (
           <TabButton
+            key={label}
             className={index === activeIndex ? "active" : ""}
             onClick={() => setActiveIndex(index)}
           >
