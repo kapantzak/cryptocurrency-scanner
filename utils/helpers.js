@@ -29,7 +29,7 @@ const trimString = (string, charsNumber = 20) => {
 
   if (string.length <= charsNumber) return string;
 
-  return `${string.slice(0, charsNumber)}...`;
+  return `${string.slice(0, charsNumber).trim()}...`;
 };
 
 const compactNumber = (number) =>
