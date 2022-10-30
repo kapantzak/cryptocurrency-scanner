@@ -174,6 +174,7 @@ const CoinDetails = ({ data }) => {
           { label: "Price Chart" },
           { label: `About ${name}` },
           { label: "Source Code" },
+          { label: "Community" },
         ]}
       >
         <div>
@@ -185,6 +186,7 @@ const CoinDetails = ({ data }) => {
         <div>
           <CoinSourceCode reposUrl={repos_url} developerData={developer_data} />
         </div>
+        <div>Community</div>
       </Tabs>
     </Wrapper>
   );
