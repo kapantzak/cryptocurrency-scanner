@@ -53,7 +53,7 @@ const options = {
       callbacks: {
         title: (context) => {
           if (context[0] && context[0].label) {
-            return dateTime(context[0].label);
+            return dateTime(new Date(context[0].label));
           }
 
           return null;
