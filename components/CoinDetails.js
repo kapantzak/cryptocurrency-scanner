@@ -7,11 +7,17 @@ import CoinPriceChart from "./CoinPriceChart";
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+
+  section {
+    display: flex;
+    column-gap: 1rem;
+  }
 `;
 
 const Info = styled.div`
   display: flex;
   flex-direction: column;
+  flex: 5;
 
   .name-wrapper {
     display: flex;
@@ -23,6 +29,12 @@ const Info = styled.div`
       font-weight: bold;
     }
   }
+`;
+
+const Price = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 7;
 `;
 
 const CoinDetails = ({ data }) => {
@@ -92,16 +104,17 @@ const CoinDetails = ({ data }) => {
 
   return (
     <Wrapper>
-      <div>
+      <section>
         <Info>
           <div className="name-wrapper">
-            <Image src={small} width={50} height={50} />
+            <Image src={small} width={50} height={50} alt={`${name} image`} />
             <div className="name">{name}</div>
             <BadgeUppercase>{symbol}</BadgeUppercase>
           </div>
           {/* <div dangerouslySetInnerHTML={{ __html: descriptionEnglish }} /> */}
         </Info>
-      </div>
+        <Price>Price</Price>
+      </section>
       <CoinPriceChart id={id} />
     </Wrapper>
   );

@@ -12,6 +12,10 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+import DaysSelector from "./DaysSelector";
+import { BadgeUppercase } from "../../styles/globalStyles";
+import { requestOptions, dateTime, priceSinceLiteral } from "./helpers";
+import styled from "styled-components";
 
 ChartJS.register(
   CategoryScale,
@@ -22,23 +26,6 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-
-const dateTime = (time) => {
-  const options = {
-    year: "numeric",
-    month: "numeric",
-    day: "numeric",
-    hour: "numeric",
-    minute: "numeric",
-    second: "numeric",
-    hour12: false,
-  };
-
-  return new Intl.DateTimeFormat(
-    process.env.NEXT_PUBLIC_LOCALE,
-    options
-  ).format(time);
-};
 
 const options = {
   responsive: true,
@@ -77,42 +64,83 @@ const options = {
   },
 };
 
+const ChartWrapper = styled.div`
+  section {
+    display: flex;
+
+    &.top {
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+    }
+  }
+`;
+
+const ChartTitleWrapper = styled.div`
+  display: flex;
+  column-gap: 0.7rem;
+`;
+
+const ChartTitle = styled.div`
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.black_light};
+`;
+
 const CoinPriceChart = ({ id }) => {
-  const [days, setDays] = useState(1);
+  const [days, setDays] = useState("1D");
   const [data, setData] = useState(null);
 
   useEffect(() => {
     let ignore = false;
 
-    getCoinMarketChart(id, days).then(({ data, status }) => {
-      if (status === 200 && !ignore) {
-        setData(data);
+    const { days: daysRequested, interval } = requestOptions(days) || {};
+
+    getCoinMarketChart({ id, days: daysRequested, interval }).then(
+      ({ data, status }) => {
+        if (status === 200 && !ignore) {
+          setData(data);
+        }
       }
-    });
+    );
 
     return () => {
       ignore = true;
     };
   }, [days]);
 
+  const handleDaysSelection = (days) => {
+    setDays(days);
+  };
+
   return (
-    <div>
-      {data && (
-        <Line
-          options={options}
-          data={{
-            labels: (data.prices || []).map(([time, _]) => dateTime(time)),
-            datasets: [
-              {
-                data: (data.prices || []).map(([_, price]) => price),
-                borderColor: "rgb(255, 99, 132)",
-                backgroundColor: "rgba(255, 99, 132, 0.5)",
-              },
-            ],
-          }}
-        />
-      )}
-    </div>
+    <ChartWrapper>
+      <section className="top">
+        <ChartTitleWrapper>
+          <ChartTitle>Price</ChartTitle>
+          <BadgeUppercase>
+            {process.env.NEXT_PUBLIC_CURRENCY} - {priceSinceLiteral(days)}
+          </BadgeUppercase>
+        </ChartTitleWrapper>
+        <DaysSelector days={days} onDaySelection={handleDaysSelection} />
+      </section>
+      <section>
+        {data && (
+          <Line
+            options={options}
+            data={{
+              labels: (data.prices || []).map(([time, _]) => dateTime(time)),
+              datasets: [
+                {
+                  data: (data.prices || []).map(([_, price]) => price),
+                  borderColor: "rgb(255, 99, 132)",
+                  backgroundColor: "rgba(255, 99, 132, 0.5)",
+                },
+              ],
+            }}
+          />
+        )}
+      </section>
+    </ChartWrapper>
   );
 };
 
