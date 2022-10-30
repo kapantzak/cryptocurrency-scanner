@@ -17,7 +17,12 @@ const CoinLinks = ({ links }) => {
       {links
         .filter((href) => href.length > 0)
         .map((href) => (
-          <BadgeLink href={href} target="_blank" rel="noopener noreferrer">
+          <BadgeLink
+            key={href}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {trimString(href.replace(/http[s]?:\/\//, ""))}{" "}
             <FaExternalLinkAlt />
           </BadgeLink>

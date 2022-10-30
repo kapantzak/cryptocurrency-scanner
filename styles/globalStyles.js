@@ -55,6 +55,7 @@ const DropdownSmall = styled(Dropdown)`
 const BadgeLink = styled.a`
   display: flex;
   column-gap: 0.3rem;
+  align-items: center;
   padding: 0.3rem 0.7rem;
   border-radius: 0.5rem;
   font-size: 0.75rem;

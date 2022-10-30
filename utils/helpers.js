@@ -32,4 +32,18 @@ const trimString = (string, charsNumber = 20) => {
   return `${string.slice(0, charsNumber)}...`;
 };
 
-export { getCurrencyFormat, getFormatedDate, getPercentage, trimString };
+const compactNumber = (number) =>
+  Intl.NumberFormat(process.env.NEXT_PUBLIC_LOCALE, {
+    notation: "compact",
+    compactDisplay: "short",
+  })
+    .format(number)
+    .replace("K", "k");
+
+export {
+  getCurrencyFormat,
+  getFormatedDate,
+  getPercentage,
+  trimString,
+  compactNumber,
+};

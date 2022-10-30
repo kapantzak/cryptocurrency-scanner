@@ -7,6 +7,8 @@ import LowHigh from "./LowHigh.js";
 import PriceChange from "./PriceChange";
 import CoinLinks from "./CoinLinks";
 import CoinReputation from "./CoinReputation";
+import CoinSourceCode from "./CoinSourceCode";
+import CoinInformation from "./CoinInformation";
 import Tabs from "./Tabs";
 import { getCurrencyFormat } from "../utils/helpers";
 import { CURRENCY } from "../utils/constants";
@@ -26,7 +28,7 @@ const Info = styled.div`
   display: flex;
   flex-direction: column;
   flex: 5;
-  row-gap: 0.5rem;
+  row-gap: 0.8rem;
 
   .name-wrapper {
     display: flex;
@@ -68,12 +70,6 @@ const Price = styled.div`
     font-size: 2rem;
     font-weight: bold;
   }
-`;
-
-const AboutCoin = styled.div`
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: ${(props) => props.theme.gray_700};
 `;
 
 const CoinDetails = ({ data }) => {
@@ -173,11 +169,22 @@ const CoinDetails = ({ data }) => {
           <LowHigh {...market_data} />
         </Price>
       </section>
-      <Tabs tabs={[{ label: "Price Chart" }, { label: `About ${name}` }]}>
+      <Tabs
+        tabs={[
+          { label: "Price Chart" },
+          { label: `About ${name}` },
+          { label: "Source Code" },
+        ]}
+      >
         <div>
           <CoinPriceChart id={id} />
         </div>
-        <AboutCoin dangerouslySetInnerHTML={{ __html: descriptionEnglish }} />
+        <div>
+          <CoinInformation name={name} description={descriptionEnglish} />
+        </div>
+        <div>
+          <CoinSourceCode reposUrl={repos_url} developerData={developer_data} />
+        </div>
       </Tabs>
     </Wrapper>
   );
