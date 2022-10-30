@@ -6,8 +6,10 @@ import CoinPriceChart from "./CoinPriceChart";
 import LowHigh from "./LowHigh.js";
 import PriceChange from "./PriceChange";
 import CoinLinks from "./CoinLinks";
+import SocialLinks from "./SocialLinks";
 import CoinReputation from "./CoinReputation";
 import CoinSourceCode from "./CoinSourceCode";
+import CoinCommunity from "./CoinCommunity";
 import CoinInformation from "./CoinInformation";
 import Tabs from "./Tabs";
 import { getCurrencyFormat } from "../utils/helpers";
@@ -154,6 +156,7 @@ const CoinDetails = ({ data }) => {
             />
             <CoinLinks links={homepage} />
           </div>
+          <SocialLinks links={links} />
           <CoinLinks links={blockchain_site} />
         </Info>
         <Price>
@@ -186,7 +189,9 @@ const CoinDetails = ({ data }) => {
         <div>
           <CoinSourceCode reposUrl={repos_url} developerData={developer_data} />
         </div>
-        <div>Community</div>
+        <div>
+          <CoinCommunity communityData={community_data} />
+        </div>
       </Tabs>
     </Wrapper>
   );
