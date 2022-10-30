@@ -1,13 +1,16 @@
 import Head from "next/head";
 import Header from "./Header";
+import Footer from "./Footer";
 import styled, { ThemeProvider } from "styled-components";
 import GlobalStyle from "../styles/globalStyles";
 
 const Main = styled.main`
   max-width: ${process.env.NEXT_PUBLIC_MAX_WIDTH}px;
+  min-height: calc(100vh - 8rem - 102px - 200px - 29px);
   margin: auto;
   margin-top: 99px;
-  padding: 2rem 0;
+  padding-top: 2rem;
+  padding-bottom: 8rem;
 `;
 
 const theme = {
@@ -42,7 +45,7 @@ const BaseLayout = ({ children }) => {
         <GlobalStyle />
         <Header />
         <Main>{children}</Main>
-        <footer>Footer</footer>
+        <Footer />
       </ThemeProvider>
     </>
   );
