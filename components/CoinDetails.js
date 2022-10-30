@@ -88,57 +88,11 @@ const CoinDetails = ({ data }) => {
     community_data,
     developer_data,
   } = data;
-  const {
-    current_price,
-    ath,
-    ath_date,
-    atl,
-    atl_date,
-    high_24h,
-    low_24h,
-    price_change_24h,
-    price_change_percentage_24h,
-    price_change_percentage_7d,
-    price_change_percentage_14d,
-    price_change_percentage_30d,
-    price_change_percentage_60d,
-    price_change_percentage_200d,
-    price_change_percentage_1y,
-  } = market_data || {};
+  const { current_price } = market_data || {};
   const { en: descriptionEnglish } = description || {};
-  const {
-    homepage,
-    blockchain_site,
-    official_forum_url,
-    chat_url,
-    announcement_url,
-    twitter_screen_name,
-    facebook_username,
-    bitcointalk_thread_identifier,
-    telegram_channel_identifier,
-    subreddit_url,
-    repos_url,
-  } = links || {};
-  const { github, bitbucket } = repos_url || {};
-  const { thumb, small, large } = image || {};
-  const {
-    facebook_likes,
-    twitter_followers,
-    reddit_average_posts_48h,
-    reddit_average_comments_48h,
-    reddit_subscribers,
-    reddit_accounts_active_48h,
-    telegram_channel_user_count,
-  } = community_data || {};
-  const {
-    forks,
-    stars,
-    subscribers,
-    total_issues,
-    closed_issues,
-    pull_requests_merged,
-    pull_request_contributors,
-  } = developer_data || {};
+  const { homepage, blockchain_site, official_forum_url, repos_url } =
+    links || {};
+  const { small } = image || {};
 
   return (
     <Wrapper>
@@ -157,6 +111,7 @@ const CoinDetails = ({ data }) => {
             <CoinLinks links={homepage} />
           </div>
           <SocialLinks links={links} />
+          <CoinLinks links={official_forum_url} />
           <CoinLinks links={blockchain_site} />
         </Info>
         <Price>
