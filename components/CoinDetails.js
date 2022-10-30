@@ -5,6 +5,7 @@ import { BadgeUppercase, BadgeUppercaseSmall } from "../styles/globalStyles";
 import CoinPriceChart from "./CoinPriceChart";
 import LowHigh from "./LowHigh.js";
 import PriceChange from "./PriceChange";
+import CoinLinks from "./CoinLinks";
 import Tabs from "./Tabs";
 import { getCurrencyFormat } from "../utils/helpers";
 import { CURRENCY } from "../utils/constants";
@@ -24,6 +25,7 @@ const Info = styled.div`
   display: flex;
   flex-direction: column;
   flex: 5;
+  row-gap: 0.5rem;
 
   .name-wrapper {
     display: flex;
@@ -142,6 +144,7 @@ const CoinDetails = ({ data }) => {
             <div className="name">{name}</div>
             <BadgeUppercase>{symbol}</BadgeUppercase>
           </div>
+          <CoinLinks links={links} />
         </Info>
         <Price>
           <div className="current-price-header">

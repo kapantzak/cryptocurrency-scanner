@@ -52,6 +52,19 @@ const DropdownSmall = styled(Dropdown)`
   padding: 0.2rem;
 `;
 
+const BadgeLink = styled.a`
+  padding: 0.3rem 0.7rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.black_light};
+  background-color: ${(props) => props.theme.gray_300};
+
+  &:hover {
+    background-color: ${(props) => props.theme.gray_400};
+  }
+`;
+
 export default GlobalStyle;
 
 export {
@@ -61,4 +74,5 @@ export {
   BadgeUppercaseSmall,
   Dropdown,
   DropdownSmall,
+  BadgeLink,
 };

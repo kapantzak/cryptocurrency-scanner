@@ -24,4 +24,12 @@ const getPercentage = (number) =>
     maximumFractionDigits: 2,
   }).format(number);
 
-export { getCurrencyFormat, getFormatedDate, getPercentage };
+const trimString = (string, charsNumber = 20) => {
+  if (!string) return "";
+
+  if (string.length <= charsNumber) return string;
+
+  return `${string.slice(0, charsNumber)}...`;
+};
+
+export { getCurrencyFormat, getFormatedDate, getPercentage, trimString };
