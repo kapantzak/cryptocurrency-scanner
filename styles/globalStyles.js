@@ -32,6 +32,33 @@ const BadgeUppercase = styled(Badge)`
   text-transform: uppercase;
 `;
 
+const BadgeUppercaseSmall = styled(BadgeUppercase)`
+  padding: 0.3rem 0.7rem;
+  font-size: 0.65rem;
+`;
+
+const BadgeSmall = styled(Badge)`
+  padding: 0.3rem 0.7rem;
+  font-size: 0.65rem;
+`;
+
+const Dropdown = styled.select`
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid ${(props) => props.theme.gray_500};
+`;
+
+const DropdownSmall = styled(Dropdown)`
+  padding: 0.2rem;
+`;
+
 export default GlobalStyle;
 
-export { Badge, BadgeUppercase };
+export {
+  Badge,
+  BadgeSmall,
+  BadgeUppercase,
+  BadgeUppercaseSmall,
+  Dropdown,
+  DropdownSmall,
+};

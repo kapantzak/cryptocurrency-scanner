@@ -1,8 +1,12 @@
 import PropTypes from "prop-types";
 import Image from "next/image";
 import styled from "styled-components";
-import { BadgeUppercase } from "../styles/globalStyles";
+import { BadgeUppercase, BadgeUppercaseSmall } from "../styles/globalStyles";
 import CoinPriceChart from "./CoinPriceChart";
+import LowHigh from "./LowHigh.js";
+import PriceChange from "./PriceChange";
+import { getCurrencyFormat } from "../utils/helpers";
+import { CURRENCY } from "../utils/constants";
 
 const Wrapper = styled.div`
   display: flex;
@@ -36,6 +40,24 @@ const Price = styled.div`
   display: flex;
   flex-direction: column;
   flex: 7;
+  row-gap: 0.3rem;
+
+  .current-price-header {
+    font-size: 0.95rem;
+    color: ${(props) => props.theme.black_light};
+  }
+
+  .price-and-change {
+    display: flex;
+    align-items: center;
+    column-gap: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .current-price {
+    font-size: 2rem;
+    font-weight: bold;
+  }
 `;
 
 const CoinDetails = ({ data }) => {
@@ -61,6 +83,7 @@ const CoinDetails = ({ data }) => {
     high_24h,
     low_24h,
     price_change_24h,
+    price_change_percentage_24h,
     price_change_percentage_7d,
     price_change_percentage_14d,
     price_change_percentage_30d,
@@ -115,7 +138,16 @@ const CoinDetails = ({ data }) => {
           {/* <div dangerouslySetInnerHTML={{ __html: descriptionEnglish }} /> */}
         </Info>
         <Price>
-          <div>Current price</div>
+          <div className="current-price-header">
+            Current price <BadgeUppercaseSmall>{CURRENCY}</BadgeUppercaseSmall>
+          </div>
+          <div className="price-and-change">
+            <div className="current-price">
+              {getCurrencyFormat(current_price[CURRENCY])}
+            </div>
+            <PriceChange {...market_data} />
+          </div>
+          <LowHigh {...market_data} />
         </Price>
       </section>
       <CoinPriceChart id={id} />

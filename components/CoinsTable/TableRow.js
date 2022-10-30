@@ -7,7 +7,7 @@ import {
   FaExternalLinkAlt,
 } from "react-icons/fa";
 import { BadgeUppercase } from "../../styles/globalStyles";
-import { getCurrencyFormat } from "../../utils/helpers";
+import { getCurrencyFormat, getPercentage } from "../../utils/helpers";
 import styled from "styled-components";
 
 const Cell = styled.td`
@@ -78,11 +78,7 @@ const TableRow = ({
   low_24h,
   price_change_percentage_24h,
 }) => {
-  const change = Intl.NumberFormat(process.env.NEXT_PUBLIC_LOCALE, {
-    style: "percent",
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  }).format(price_change_percentage_24h);
+  const change = getPercentage(price_change_percentage_24h / 100);
 
   return (
     <tr>

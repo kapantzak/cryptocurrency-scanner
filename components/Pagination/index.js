@@ -1,18 +1,13 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { Dropdown } from "../../styles/globalStyles";
 
 const PaginationWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem 0;
-`;
-
-const PerPageSelector = styled.select`
-  padding: 0.5rem;
-  border-radius: 4px;
-  border: 1px solid ${(props) => props.theme.gray_500};
 `;
 
 const PaginationHandlers = styled.div`
@@ -46,13 +41,13 @@ const Pagination = ({
     <PaginationWrapper>
       <PaginationHandlers>
         Items per page
-        <PerPageSelector value={perPage} onChange={onPerPageChange}>
+        <Dropdown value={perPage} onChange={onPerPageChange}>
           {perPageOptions.map((num) => (
             <option key={num} value={num}>
               {num}
             </option>
           ))}
-        </PerPageSelector>
+        </Dropdown>
       </PaginationHandlers>
       <PaginationHandlers>
         <Button
