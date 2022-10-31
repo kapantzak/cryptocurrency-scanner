@@ -25,3 +25,17 @@ or in watch mode:
 ```bash
 npm run testw
 ```
+
+## Environment variables
+
+The application needs the following environment variables in order to function correctly. You'll have to create a `.env.local` file, with the following contents, in your local copy in order to run the app locally.
+
+```bash
+NEXT_PUBLIC_SITE_TITLE = 'Cryptocurrency scanner'
+NEXT_PUBLIC_API_URL = 'https://api.coingecko.com/api/v3'
+NEXT_PUBLIC_CURRENCY = 'usd'
+NEXT_PUBLIC_LOCALE = 'en-US'
+NEXT_PUBLIC_DEFAULT_PAGINATION_PER_PAGE = 20
+NEXT_PUBLIC_PAGINATION_OPTIONS = '20,50,100,200'
+NEXT_PUBLIC_MAX_WIDTH = 1280
+```
