@@ -23,6 +23,11 @@ const Wrapper = styled.div`
   section {
     display: flex;
     column-gap: 1rem;
+
+    @media (max-width: ${process.env.NEXT_PUBLIC_MAX_WIDTH}px) {
+      flex-direction: column;
+      row-gap: 2rem;
+    }
   }
 `;
 

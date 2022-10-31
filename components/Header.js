@@ -18,6 +18,11 @@ const HeaderInner = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 2rem 0;
+
+  @media (max-width: ${process.env.NEXT_PUBLIC_MAX_WIDTH}px) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 `;
 
 const Logo = styled.div`

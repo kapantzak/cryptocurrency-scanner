@@ -11,6 +11,11 @@ const Main = styled.main`
   margin-top: 99px;
   padding-top: 2rem;
   padding-bottom: 8rem;
+
+  @media (max-width: ${process.env.NEXT_PUBLIC_MAX_WIDTH}px) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 `;
 
 const theme = {
