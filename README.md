@@ -14,7 +14,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Testing
 
-Run a number of predefined tests by running:
+Test the app by running:
 
 ```bash
 npm run test
@@ -28,7 +28,7 @@ npm run testw
 
 ## Environment variables
 
-The application needs the following environment variables in order to function correctly. You'll have to create a `.env.local` file, with the following contents, in your local copy in order to run the app locally.
+The application needs the following environment variables in order to function correctly. Create a `.env.local` file in the root of your project and copy the following contents inside.
 
 ```bash
 NEXT_PUBLIC_SITE_TITLE = 'Cryptocurrency scanner'
