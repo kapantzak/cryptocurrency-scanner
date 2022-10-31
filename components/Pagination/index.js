@@ -38,10 +38,14 @@ const Pagination = ({
   onPreviousClick,
 }) => {
   return (
-    <PaginationWrapper>
+    <PaginationWrapper data-testid="pagination">
       <PaginationHandlers>
         Items per page
-        <Dropdown value={perPage} onChange={onPerPageChange}>
+        <Dropdown
+          value={perPage}
+          onChange={onPerPageChange}
+          aria-label="Change page size"
+        >
           {perPageOptions.map((num) => (
             <option key={num} value={num}>
               {num}
