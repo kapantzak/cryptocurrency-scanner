@@ -1,6 +1,8 @@
 # Cryptocurrency scanner
 
-This is a [Next.js](https://nextjs.org/) app that fetches and displays cryptocurrency data.
+This is a [Next.js](https://nextjs.org/) application that shows information about cryptocurrency data.
+
+A live version is deployed on Vercel and can be found here: [https://cryptocurrency-scanner.vercel.app/home](https://cryptocurrency-scanner.vercel.app/home).
 
 ## Getting Started
 
